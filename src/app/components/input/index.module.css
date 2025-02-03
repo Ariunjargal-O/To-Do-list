@@ -39,39 +39,3 @@
   margin-top: 19px;
 margin-right: 6px;
 }
-
-.NoTasksMessage {
-  color: #6b7280;
-  text-align: center;
-  font-family: Inter;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  align-self: stretch;
-  margin-top: 32px;
-  margin-bottom: 40px;
-}
-
-.footerText {
-  color: #6b7280;
-  font-family: Inter;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-.madebyCompany{
-    color: #3B73ED;
-font-family: Inter;
-font-size: 12px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-margin-left: 4px;
-}
-
-.footerContainer{
-  display: flex;
-  justify-content: center;
-}
