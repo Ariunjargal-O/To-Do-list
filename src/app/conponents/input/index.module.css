@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.inputText {
+  display: inline-flex;
+  width: 280px;
+  height: 40px;
+  padding: 8px 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 6px;
+  border: 1px solid var(--border-border-border, #e4e4e7);
+}
+
+.addBtn {
+  display: flex;
+  height: 40px;
+  padding: 8px 16px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 6px;
+  border: 0;
+  background-color: #3c82f6;
+  color: white;
+}
+
+.addFlex {
+  display: flex;
+  gap: 6px;
+}
+
+.controlBtn {
+  height: 32px;
+  padding: 4px 12px;
+  border-radius: 6px;
+  background-color: #f3f4f6;
+  border: 0;
+  color: #363636;
+  margin-top: 19px;
+margin-right: 6px;
+}
+
+.NoTasksMessage {
+  color: #6b7280;
+  text-align: center;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  align-self: stretch;
+  margin-top: 32px;
+  margin-bottom: 40px;
+}
+
+.footerText {
+  color: #6b7280;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.madebyCompany{
+    color: #3B73ED;
+font-family: Inter;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+margin-left: 4px;
+}
+
+.footerContainer{
+  display: flex;
+  justify-content: center;
+}
