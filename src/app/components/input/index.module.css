@@ -12,6 +12,11 @@
   border: 1px solid var(--border-border-border, #e4e4e7);
 }
 
+.addFlex {
+    display: flex;
+    gap: 6px;
+  }
+
 .addBtn {
   display: flex;
   height: 40px;
@@ -22,20 +27,4 @@
   border: 0;
   background-color: #3c82f6;
   color: white;
-}
-
-.addFlex {
-  display: flex;
-  gap: 6px;
-}
-
-.controlBtn {
-  height: 32px;
-  padding: 4px 12px;
-  border-radius: 6px;
-  background-color: #f3f4f6;
-  border: 0;
-  color: #363636;
-  margin-top: 19px;
-margin-right: 6px;
 }

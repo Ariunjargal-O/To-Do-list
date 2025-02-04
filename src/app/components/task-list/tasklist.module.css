@@ -14,27 +14,5 @@
     margin-bottom: 40px;
   }
   
-  .footerText {
-    color: #6b7280;
-    font-family: Inter;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-  .madebyCompany{
-      color: #3B73ED;
-  font-family: Inter;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin-left: 4px;
-  }
-  
-  .footerContainer{
-    display: flex;
-    justify-content: center;
-    
-  }
+
   
