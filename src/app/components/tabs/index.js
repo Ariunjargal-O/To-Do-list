@@ -1,17 +1,33 @@
-"use client"
+"use client";
 import { useState } from "react";
 import styles from "./index.module.css";
 
-
 const Tab = () => {
-const[status, SetStatus] = useState("All")
+  const [status, SetStatus] = useState("All");
 
-    return (
-      <div>
-        <button className={`${styles.controlBtn} ${styles.activeBtn}`}>All</button>
-        <button className={styles.controlBtn}>Active</button>
-        <button className={styles.controlBtn}>Completed</button>
-      </div>
+  function changeStatus() {
+    SetStatus("All");
+  }
+
+  return (
+    <div>
+      <button
+        onClick={() => SetStatus("All")}
+        className={`${status === "All" ? styles.activeBtn : styles.controlBtn}`}
+      >
+        All
+      </button>
+      <button onClick={() => SetStatus("Active")} 
+      className={`${status === "Active" ? styles.activeBtn : styles.controlBtn}`}>
+        Active
+      </button>
+      <button
+        onClick={() => SetStatus("Completed")}
+        className={`${status === "Completed" ? styles.activeBtn : styles.controlBtn}`}
+      >
+        Completed
+      </button>
+    </div>
   );
 };
 

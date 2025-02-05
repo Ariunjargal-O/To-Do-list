@@ -1,3 +1,9 @@
+:root {
+  --delbck: #FEF2F2;
+  --deltxt: #EF4444;
+  --edtbck: #c9dbec;
+  --edttxt: #0d65b4;
+}
 
 * {
   box-sizing: border-box;

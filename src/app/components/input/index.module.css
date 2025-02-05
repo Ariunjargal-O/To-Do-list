@@ -14,7 +14,8 @@
 
 .addFlex {
     display: flex;
-    gap: 6px;
+    flex-direction: row;
+    margin: 10px;
   }
 
 .addBtn {
@@ -27,4 +28,43 @@
   border: 0;
   background-color: #3c82f6;
   color: white;
+}
+
+.addText{
+  font-family: Inter;
+font-size: 14px;
+font-weight: 400;
+line-height: 16.94px;
+text-align: left;
+text-decoration-skip-ink: none;
+margin-left: 3px;
+}
+
+/* :root {
+  --delbck: #FEF2F2;
+  --deltxt: #EF4444;
+  --edtbck: #3C82F6;
+  --edttxt:#FA83F1;
+}      global.css deer bichne*/   
+
+.changeBtn{
+font-family: Inter;
+font-size: 14px;
+font-weight: 400;
+line-height: 16.94px;
+text-align: left;
+text-decoration-skip-ink: none;
+/* background-color: var(--delbck #FEF2F2, --edtbck  #3C82F6);
+color: var(--deltxt #EF4444,--edttxt#FA83F1); */   
+border: 1px;
+padding: 6px 12px 6px 12px;
+margin-left: 6px;
+border-radius: 6px;
+opacity: 0px;
+}
+
+.taskFlex{
+display: flex;
+justify-content: space-between;
+
 }
