@@ -6,7 +6,7 @@ const Taskcontainer = (props) =>{
     return(
         <div>
         <Tab></Tab>
-        <TaskList Tasks={props.Tasks} ></TaskList>
+        <TaskList tasks={props.tasks} ></TaskList>
         </div>
 
     )

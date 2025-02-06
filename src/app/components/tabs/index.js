@@ -1,18 +1,32 @@
 "use client";
 import { useState } from "react";
 import styles from "./index.module.css";
+import Input from "../task-list";
 
 const Tab = () => {
   const [status, SetStatus] = useState("All");
 
   function changeStatus() {
     SetStatus("All");
+    // const filtertask = TaskList.filter(tesk => task.isComplete == true)
+    // setTasks(filtertask)
   }
+
+  // function onClickActive () {
+  //   const filtertask = TaskList.filter(tesk => task.isComplete == true)
+  //   setTasks(filtertask)
+  // }
+
+
+
 
   return (
     <div>
       <button
-        onClick={() => SetStatus("All")}
+        onClick={() => {
+          SetStatus("All");
+        }
+        }
         className={`${status === "All" ? styles.activeBtn : styles.controlBtn}`}
       >
         All
