@@ -32,6 +32,15 @@ const Input = (props) => {
     newTasks.push(inputValue);
   }
 
+function editTask () {
+  const editTask = addnewtask ("")
+  const newTasks = [...addtasks];
+  newTasks[index].text = editTask ;
+  setTasks(newTasks);
+}
+
+
+
   return (
     <div>
       <div className={styles.addFlex}>
@@ -46,13 +55,14 @@ const Input = (props) => {
       </div>
       <div>
         {addtasks.map((addtaskItem, index) => (
-          <div className={styles.TaskFlex} key={addtaskItem}>
-            <div className={styles.addText}>
+          <div className={styles.taskFlex} key={addtaskItem}>
+            <div className={styles.addFlex}>
               <input type="checkbox"></input>
-              <p>{addtaskItem}</p>
+              <p className={styles.addText}>{addtaskItem}</p>
             </div>
-            <div>
+            <div className={styles.addFlex}>
               <button
+              onClick={() => editTask(index)}
                 className={styles.changeBtn}
                 style={{
                   backgroundColor: "var(--edtbck)",

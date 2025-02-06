@@ -9,7 +9,7 @@ import { useState } from "react";
 
 
 export default function Home() {
-  const [tasks, setTasks] = useState ([])
+  const [tasks, setTasks] = useState([])
 
 
   return (
@@ -18,7 +18,7 @@ export default function Home() {
       <Input setTasks={setTasks}></Input>
       <Taskcontainer></Taskcontainer>
 
-     <Footer></Footer>
+      <Footer></Footer>
     </div>
   );
 }
