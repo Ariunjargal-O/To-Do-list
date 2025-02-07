@@ -1,11 +1,11 @@
 import styles from "./index.module.css"
-import Tab from "../tabs/index.js"
+import Input from "../input/index.js"
 import TaskList from "../task-list/index.js"
 
 const Taskcontainer = (props) =>{
     return(
         <div>
-        <Tab></Tab>
+         <Input></Input>
         <TaskList tasks={props.tasks} ></TaskList>
         </div>
 

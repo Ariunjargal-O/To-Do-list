@@ -10,7 +10,7 @@ import styles from "./tasklist.module.css";
 // ];
 
 const TaskList = (props) => {
-  if (props.tasks.length == 0) {
+  if (props.newTask.length == 0) {
     return (
       <div>
         <p className={styles.noTasksMessage}>No tasks yet. Add one above!</p>
@@ -20,7 +20,7 @@ const TaskList = (props) => {
 
   return (
     <div>
-      {props.tasks.map((task,index) => {
+      {props.newTask.map((task,index) => {
         return <div key={index} >{task.title}</div>;
       })}
     </div>

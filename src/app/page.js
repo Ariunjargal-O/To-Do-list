@@ -14,8 +14,8 @@ export default function Home() {
   return (
     <div className={styles.cardContainer}>
       <Title></Title>
-      <Taskcontainer tasks={tasks} setTasks = {setTasks}></Taskcontainer>
-      <Input  tasks={tasks} setTasks={setTasks}></Input>
+      {/* <Taskcontainer tasks={tasks} setTasks = {setTasks}></Taskcontainer> */}
+     <Input></Input>
       <Footer></Footer>
     
     </div>

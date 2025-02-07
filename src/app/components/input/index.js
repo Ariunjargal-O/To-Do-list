@@ -1,146 +1,189 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./index.module.css";
-
-// const [newTask, setNewtask] = useState([])
 
 const Input = (props) => {
   const [inputValue, setInputValue] = useState("");
   const [addtasks, setTasks] = useState([]);
-  
-  const onChange = (event) => {
-    setInputValue(event.target.value);
+  const [filteredtasks, setFilteredTasks] = useState([]);
+  const [status, setStatus] = useState("All");
+  const [editingId, setEditingId] = useState(null);
+  const [editText, setEditText] = useState("");
+
+  // Update filtered tasks whenever tasks or status changes
+  useEffect(() => {
+    filterTasks();
+  }, [addtasks, status]);
+
+  const filterTasks = () => {
+    switch (status) {
+      case "Active":
+        setFilteredTasks(addtasks.filter(task => !task.completed));
+        break;
+      case "Completed":
+        setFilteredTasks(addtasks.filter(task => task.completed));
+        break;
+      default:
+        setFilteredTasks(addtasks);
+    }
   };
 
-  function addNewTask() {
-    // MY bichiglel
-    // console.log(inputValue);
-    // const newTasks = [...addtasks];
-    // newTasks.push(inputValue);        // 1 bichiglel
+  const addnewtask = () => {
+    if (!inputValue.trim()) return;
+    const newTask = { 
+      text: inputValue.trim(), 
+      completed: false, 
+      id: Date.now() 
+    };
+    setTasks([newTask, ...addtasks]);
+    setInputValue("");
+  };
 
-    // const newTasks = [inputValue, ...addtasks]; // 2 bichiglel buyu pushlegdej bga auvomat
-    // setTasks(newTasks);
+  const editTask = (id) => {
+    const task = addtasks.find(task => task.id === id);
+    setEditingId(id);
+    setEditText(task.text);
+  };
 
-    // AI ynlasan ni
-    // if(inputValue.trim() === "")return;   // Prevent adding empty tasks
-    const newTasks = { text: inputValue, completed: false, id: Date.now() };
-    setTasks([newTasks, ...addtasks]);
-    setInputValue(""); // Clear input after adding
-  }
+  const saveEdit = (id) => {
+    const updatedTasks = addtasks.map(task => 
+      task.id === id ? {...task, text: editText.trim()} : task
+    );
+    setTasks(updatedTasks);
+    setEditingId(null);
+    setEditText("");
+  };
 
-  function editTask(index) {
-    const task = addtasks[index];
-
-    // const editText = ("")
-    // const newTasks = addNewTask("Edit your tasks:",[inputValue]);
-
-    // setTasks( newTasks);
-    // console.log(editText)
-  }
-
-  // const gj function duudah uyd gj bichne.
-  //const editTask = () => {
-  //   return(
-  //   )
-  // }
-  // export default editTask    --> Gj bichij bj uur js ruu duudna, ene js dotroo bol tgeh shaardlaaggui.
-
-  function deleteText(index) {
-    // console.log(inputValue);
-    const newTasks = addtasks.filter((_, i) => i !== index);
+  const deleteTask = (id) => {
+    const newTasks = addtasks.filter(task => task.id !== id);
     setTasks(newTasks);
-  }
+  };
 
-  function completedTask(index) {
-    const newTasks = [...addtasks];
-    newTasks[index].completed = !newTasks[index].completed;
-    setTasks(newTasks);
-    console.log(newTasks)
-  }
+  const toggleComplete = (id) => {
+    const updatedTasks = addtasks.map(task => 
+      task.id === id ? {...task, completed: !task.completed} : task
+    );
+    setTasks(updatedTasks);
+  };
 
-  function handleKeyDown(event) {
+  const handleKeyDown = (event) => {
     if (event.code === "Enter") {
-      addNewTask();
+      if (editingId !== null) {
+        saveEdit(editingId);
+      } else {
+        addnewtask();
+      }
     }
-  }
+  };
 
-  // tabs
-  // const Tab = () => {
   
+
   return (
     <div>
+      <div className={styles.addFlex}>
+        <input
+          onChange={(e) => setInputValue(e.target.value)}
+          className={styles.inputText}
+          value={inputValue}
+          placeholder="Add a new task ..."
+          onKeyDown={handleKeyDown}
+        />
+        <button onClick={addnewtask} className={styles.addBtn}>
+          Add
+        </button>
+      </div>
+
       <div>
-        <div className={styles.addFlex}>
-          <input
-            onChange={onChange}
-            className={styles.inputText}
-            value={inputValue}
-            placeholder="Add a new task ..."
-            onKeyDown={handleKeyDown}
-          />
-          <button onClick={addNewTask} className={styles.addBtn}>
-            Add
-          </button>
-        </div>
+        <button
+          onClick={() => setStatus("All")}
+          className={status === "All" ? styles.activeBtn : styles.controlBtn}
+        >
+          All
+        </button>
+        <button
+          onClick={() => setStatus("Active")}
+          className={status === "Active" ? styles.activeBtn : styles.controlBtn}
+        >
+          Active
+        </button>
+        <button
+          onClick={() => setStatus("Completed")}
+          className={status === "Completed" ? styles.activeBtn : styles.controlBtn}
+        >
+          Completed
+        </button>
+      </div>
 
-        
-
-        <div>
-          {addtasks.map((inputValue, index) => (
-            <div className={styles.taskFlex} key={inputValue.id}>
-              <div className={styles.addFlex}>
+      <div>
+        {filteredtasks.map((task) => (
+          <div className={styles.taskFlex} key={task.id}>
+            <div className={styles.addFlex}>
+              <input
+                type="checkbox"
+                checked={task.completed}
+                onChange={() => toggleComplete(task.id)}
+              />
+              
+              {editingId === task.id ? (
                 <input
-                  type="checkbox"
-                  checked={inputValue.completed}
-                  onChange={() => completedTask(index)}
-                ></input>
-
+                  type="text"
+                  value={editText}
+                  onChange={(e) => setEditText(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  onBlur={() => saveEdit(task.id)}
+                  autoFocus
+                />
+              ) : (
                 <p
                   className={styles.addText}
                   style={{
-                    textDecoration: inputValue.completed
-                      ? "line-through"
-                      : "none",
+                    textDecoration: task.completed ? "line-through" : "none",
+                    opacity: task.completed ? 0.5 : 1
                   }}
                 >
-                  {inputValue.text}
+                  {task.text}
                 </p>
-
-                {/* <input/> */}
-              </div>
-
-              <div className={styles.addFlex}>
-                <button
-                  onClick={() => editTask(index)}
-                  className={styles.changeBtn}
-                  style={{
-                    backgroundColor: "var(--edtbck)",
-                    color: "var(--edttxt)",
-                  }}
-                >
-                  Edit
-                </button>
-
-                <button
-                  onClick={() => deleteText(index)}
-                  className={styles.changeBtn}
-                  style={{
-                    backgroundColor: "var(--delbck)",
-                    color: "var(--deltxt)",
-                  }}
-                >
-                  Delete
-                </button>
-              </div>
+              )}
             </div>
-          ))}
-        </div>
 
-        
+            <div className={styles.taskActions}>
+              <button
+                onClick={() => 
+                  editingId === task.id ? saveEdit(task.id) : editTask(task.id)
+                }
+                className={styles.changeBtn}
+                style={{
+                  backgroundColor: "var(--edtbck)",
+                  color: "var(--edttxt)",
+                }}
+              >
+                {editingId === task.id ? "Save" : "Edit"}
+              </button>
+
+              <button
+                onClick={() => deleteTask(task.id)}
+                className={styles.changeBtn}
+                style={{
+                  backgroundColor: "var(--delbck)",
+                  color: "var(--deltxt)",
+                }}
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
 
-      {/* tabs */}
+      <div>
+      
+
+      {addtasks.length === 0 ? <div className={styles.noTasksMessage}>No tasks yet. Add one above!</div> : <div ></div>}
     </div>
+    </div>
+
+    
   );
 };
+
 export default Input;
