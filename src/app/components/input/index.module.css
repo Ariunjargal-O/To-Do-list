@@ -14,7 +14,7 @@
 
 .addFlex {
     display: flex;
-    margin: 10px;
+    margin: 0 0 10px 0;
   }
 
 .addBtn {
