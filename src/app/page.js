@@ -10,14 +10,14 @@ import { useState } from "react";
 
 export default function Home() {
   const [tasks, setTasks] = useState([])
-console.log(tasks)
+  console.log(tasks)
   return (
     <div className={styles.cardContainer}>
       <Title></Title>
+      <Taskcontainer tasks={tasks} setTasks = {setTasks}></Taskcontainer>
       <Input  tasks={tasks} setTasks={setTasks}></Input>
-      <Taskcontainer tasks={tasks} ></Taskcontainer>
-
       <Footer></Footer>
+    
     </div>
   );
 }

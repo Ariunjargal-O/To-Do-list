@@ -46,3 +46,53 @@ const Tab = () => {
 };
 
 export default Tab;
+
+// const [filteredtasks, setFilteredTasks] = useState(addtasks);
+// const [status, setStatus] = useState("All");
+
+//   function changeStatus() {
+//     SetStatus("All");
+//   }
+
+  
+//   // const [ filter, setFilter] = useState("All")
+
+//   // const onClickAll = () => {
+//   //   setFilteredTasks(addtasks)
+//   //   }
+
+//   // const onClickActive = () => {
+//   //   const filteredarr = addtasks.filter(addtasks => addtasks.isComplete == false)
+//   //   setFilteredTasks(filteredarr)
+//   //   }
+
+//   // const onClickComplete = () => {
+//   // const filteredarr = addtasks.filter(addtasks => addtasks.isComplete == true)
+//   // setFilteredTasks(filteredarr)
+//   // }
+
+//   const setAll = () => {
+//     setStatus("All");
+//     const onClickAll = () => {
+//       setFilteredTasks(addtasks);
+//     };
+//     onClickAll(addtasks);
+//   };
+//   const setActive = () => {
+//     const filteredarr = addtasks.filter(
+//       (addtasks) => addtasks.isComplete == false
+//     );
+//     setFilteredTasks(filteredarr);
+//     setStatus("Active");
+//   };
+
+//   const setComplete = () => {
+//     setStatus("Completed");
+//     const onClickComplete = () => {
+//       const filteredarr = addtasks.filter(
+//         (addtasks) => addtasks.isComplete == true
+//       );
+//       setFilteredTasks(filteredarr);
+//     };
+//     onClickComplete(filteredtasks);
+//   };
