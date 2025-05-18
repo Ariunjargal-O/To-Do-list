@@ -196,7 +196,7 @@ export default function Home() {
         </div>
       </div>
       <footer className="text-center mt-4">
-        Powered by <a className="text-blue-500">Pine Arii</a>
+        Powered by <a className="text-blue-500">Pine Ariii</a>
       </footer>
     </div>
   );
