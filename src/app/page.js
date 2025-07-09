@@ -84,7 +84,7 @@ export default function Home() {
             onKeyDown={onkeydown}
           ></input>
           <button
-            className="py-1 px-3 bg-blue-500 text-white text-sm not-italic font-normal rounded-md"
+            className="py-1 px-3 bg-blue-500 text-white text-sm not-italic font-normal rounded-md cursor-pointer"
             onClick={addNewTask}
           >
             Add
@@ -92,7 +92,7 @@ export default function Home() {
         </div>
         <div className="flex mt-5 gap-3">
           <button
-            className={`py-1 px-3 text-sm not-italic font-normal rounded-md ${
+            className={`py-1 px-3 text-sm not-italic font-normal rounded-md cursor-pointer ${
               status === "All"
                 ? "bg-blue-500 text-white"
                 : "bg-gray-100 text-black"
@@ -102,7 +102,7 @@ export default function Home() {
             All
           </button>
           <button
-            className={`py-1 px-3 text-sm not-italic font-normal rounded-md ${
+            className={`py-1 px-3 text-sm not-italic font-normal rounded-md cursor-pointer ${
               status === "Active"
                 ? "bg-blue-500 text-white"
                 : "bg-gray-100 text-black"
@@ -112,7 +112,7 @@ export default function Home() {
             Active
           </button>
           <button
-            className={`py-1 px-3 text-sm not-italic font-normal rounded-md ${
+            className={`py-1 px-3 text-sm not-italic font-normal rounded-md cursor-pointer ${
               status === "Completed"
                 ? "bg-blue-500 text-white"
                 : "bg-gray-100 text-black"
@@ -141,6 +141,7 @@ export default function Home() {
                 >
                   <div className="flex gap-3">
                     <input
+                    className="cursor-pointer"
                       type="checkbox"
                       checked={task.isCompleted}
                       onChange={() => {
@@ -159,7 +160,7 @@ export default function Home() {
                   </div>
                   <div className="flex gap-3">
                     <button
-                      className="py-1 px-3 text-sm not-italic font-normal rounded-md bg-red-100 text-red-500"
+                      className="py-1 px-3 text-sm not-italic font-normal rounded-md bg-red-100 text-red-500 cursor-pointer"
                       onClick={() => {
                         edtBtn(index);
                       }}
@@ -167,7 +168,7 @@ export default function Home() {
                       Edit
                     </button>
                     <button
-                      className="py-1 px-3 text-sm not-italic font-normal rounded-md bg-blue-100 text-blue-800"
+                      className="py-1 px-3 text-sm not-italic font-normal rounded-md bg-blue-100 text-blue-800 cursor-pointer"
                       onClick={() => {
                         delBtn(index);
                       }}
@@ -189,14 +190,14 @@ export default function Home() {
             onClick={() => {
               allDelete();
             }}
-            className="text-red-500"
+            className="text-red-500 cursor-pointer"
           >
             Clear Compeleted
           </p>
         </div>
       </div>
       <footer className="text-center mt-4">
-        Powered by <a className="text-blue-500">Pine Ariii</a>
+        Powered by <a className="text-blue-500 cursor-pointer">Pine Ariii</a>
       </footer>
     </div>
   );
